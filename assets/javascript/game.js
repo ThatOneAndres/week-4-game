@@ -41,7 +41,7 @@ var sasuke = new Player("Sasuke", 12, 50, sasukeAttackIncrease);
 
 // Choice of support characters with their respective abilities
 var sakura = new Support("Sakura", 2);
-saukra.heal = function(player){
+sakura.heal = function(player){
 	player.health += player.attack/3;
 }
 
