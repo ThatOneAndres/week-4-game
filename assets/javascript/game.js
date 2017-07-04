@@ -92,7 +92,7 @@ $(document).ready(function(){
 		if (player_char === "both"){
 			$("#battle-text").css("display","inline")
 			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive battle-img'>");
+			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
 			pimage.attr("src", "assets/images/NarutoandSasuke.png");
 			$(".player-img").append(pimage);
 
@@ -103,7 +103,7 @@ $(document).ready(function(){
 			phealth.html(naruto.health + sasuke.health);
 			$(".player-img").append(phealth);
 
-			var zimage = $("<img class = 'img-responsive battle-img'>");
+			var zimage = $("<img class = 'img-responsive center-block battle-img'>");
 			zimage.attr("src", "assets/images/Zabuza.png");
 			$(".enemy-img").append(zimage);
 			var zname = $("<p class = 'battle-name text-center'>");
@@ -143,7 +143,7 @@ $(document).ready(function(){
 		if (player_char === "both"){
 			$("#battle-text").css("display","inline")
 			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive battle-img'>");
+			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
 			pimage.attr("src", "assets/images/NarutoandSasuke.png");
 
 			var pname = $("<p class = 'battle-name text-center'>");
@@ -155,7 +155,7 @@ $(document).ready(function(){
 			$(".player-img").append(pimage);
 
 
-			var oimage = $("<img class = 'img-responsive battle-img'>");
+			var oimage = $("<img class = 'img-responsive center-block battle-img'>");
 			oimage.attr("src", "assets/images/Orochimaru.png");
 			$(".enemy-img").append(oimage);
 			var oname = $("<p class = 'battle-name text-center'>");
@@ -197,7 +197,7 @@ $(document).ready(function(){
 		if (player_char === "both"){
 			$("#battle-text").css("display","inline")
 			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive battle-img'>");
+			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
 			pimage.attr("src", "assets/images/NarutoandSasuke.png");
 
 			var pname = $("<p class = 'battle-name text-center'>");
@@ -208,7 +208,7 @@ $(document).ready(function(){
 			$(".player-img").append(phealth);
 			$(".player-img").append(pimage);
 
-			var paimage = $("<img class = 'img-responsive battle-img'>");
+			var paimage = $("<img class = 'img-responsive center-block battle-img'>");
 			paimage.attr("src", "assets/images/Pain.png");
 			$(".enemy-img").append(paimage);
 			var paname = $("<p class = 'battle-name text-center'>");
@@ -249,7 +249,7 @@ $(document).ready(function(){
 		if (player_char === "both"){
 			$("#battle-text").css("display","inline")
 			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive battle-img'>");
+			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
 			pimage.attr("src", "assets/images/NarutoandSasuke.png");
 
 			var pname = $("<p class = 'battle-name text-center'>");
@@ -260,7 +260,7 @@ $(document).ready(function(){
 			$(".player-img").append(phealth);
 			$(".player-img").append(pimage);
 
-			var mimage = $("<img class = 'img-responsive battle-img'>");
+			var mimage = $("<img class = 'img-responsive center-block battle-img'>");
 			mimage.attr("src", "assets/images/Madara.png");
 			$(".enemy-img").append(mimage);
 			var mname = $("<p class = 'battle-name text-center'>");
@@ -301,7 +301,7 @@ $(document).ready(function(){
 		if (player_char === "both"){
 			$("#battle-text").css("display","inline")			
 			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive battle-img'>");
+			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
 			pimage.attr("src", "assets/images/NarutoandSasuke.png");
 
 			var pname = $("<p class = 'battle-name text-center'>");
@@ -312,7 +312,7 @@ $(document).ready(function(){
 			$(".player-img").append(phealth);
 			$(".player-img").append(pimage);
 
-			var kimage = $("<img class = 'img-responsive battle-img'>");
+			var kimage = $("<img class = 'img-responsive center-block battle-img'>");
 			kimage.attr("src", "assets/images/Kaguya.png");
 			$(".enemy-img").append(kimage);
 			var kname = $("<p class = 'battle-name text-center'>");
