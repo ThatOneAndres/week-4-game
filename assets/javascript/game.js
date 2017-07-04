@@ -82,222 +82,18 @@ var removeEnemy = function(enemy){
 
 $(document).ready(function(){
 
-	// Selecting Enemy to fight
-	//Chose to fight Zabuza
-	$(".zabuza-img").on("click", function(){
+
+		// Selecting to fight an enemy
+		$(".img-size").on("click", function(){
 		$(".character-select").css("display","none");
 		$("#choose-text").css("display","none");
-		enemy_char = zabuza;
-
-		if (player_char === "both"){
-			$("#battle-text").css("display","inline")
-			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
-			pimage.attr("src", "assets/images/NarutoandSasuke.png");
-			$(".player-img").append(pimage);
-
-			var pname = $("<p class = 'battle-name text-center'>");
-			pname.html("Naruto and Sasuke");
-			$(".player-img").append(pname);
-			var phealth = $("<p class= 'battle-health text-center'>");
-			phealth.html(naruto.health + sasuke.health);
-			$(".player-img").append(phealth);
-
-			var zimage = $("<img class = 'img-responsive center-block battle-img'>");
-			zimage.attr("src", "assets/images/Zabuza.png");
-			$(".enemy-img").append(zimage);
-			var zname = $("<p class = 'battle-name text-center'>");
-			zname.html(enemy_char.name);
-			$(".enemy-img").append(zname);
-			var zhealth = $("<p class = 'battle-health text-center'>");
-			zhealth.html(enemy_char.health);
-			$(".enemy-img").append(zhealth);
-		}else{
-			$(".player-img").css("display","block");
-			$(".enemy-img").css("display","block");
-			$("#battle-text").css("display","inline");
-			var pimg = player_char.name + player_char.state +".png";
-			var pimg_path = "assets/images/" + pimg;
-			$(".player-img .battle-img").attr("src",pimg_path);
-			$(".player-img .battle-name").html(player_char.name);
-			$(".player-img .battle-health").html(player_char.health);
-
-			$(".enemy-img .battle-img").attr("src","assets/images/Zabuza.png");
-			$(".enemy-img .battle-name").html(enemy_char.name);
-			$(".enemy-img .battle-health").html(enemy_char.health);
+		var name_char = $(this).attr("name");
+		for (var i = 0; i < enemies.length; i++){
+			if(name_char === enemies[i].name){
+				enemy_char = enemies[i];
+			}
 		}
-
-		
-		var attack_button = $("<button class = 'btn btn-danger' id = 'atk-btn'>");
-		attack_button.html("Attack");
-		$(".center-col").append(attack_button);
-
-	});
-
-		//Chose to fight Orochimaru
-		$(".orochimaru-img").on("click", function(){
-		$(".character-select").css("display","none");
-		$("#choose-text").css("display","none");
-		enemy_char = orochimaru;
-
-		if (player_char === "both"){
-			$("#battle-text").css("display","inline")
-			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
-			pimage.attr("src", "assets/images/NarutoandSasuke.png");
-
-			var pname = $("<p class = 'battle-name text-center'>");
-			pname.html("Naruto and Sasuke");
-			$(".player-img").append(pname);
-			var phealth = $("<p class= 'battle-health text-center'>");
-			phealth.html(naruto.health + sasuke.health);
-			$(".player-img").append(phealth);
-			$(".player-img").append(pimage);
-
-
-			var oimage = $("<img class = 'img-responsive center-block battle-img'>");
-			oimage.attr("src", "assets/images/Orochimaru.png");
-			$(".enemy-img").append(oimage);
-			var oname = $("<p class = 'battle-name text-center'>");
-			oname.html(enemy_char.name);
-			$(".enemy-img").append(oname);
-			var ohealth = $("<p class = 'battle-health text-center'>");
-			ohealth.html(enemy_char.health);
-			$(".enemy-img").append(ohealth);
-
-		}else{
-			$(".player-img").css("display","block");
-			$(".enemy-img").css("display","block");
-			$("#battle-text").css("display","inline");
-			var pimg = player_char.name + player_char.state +".png";
-			var pimg_path = "assets/images/" + pimg;
-			$(".player-img .battle-img").attr("src",pimg_path);
-			$(".player-img .battle-name").html(player_char.name);
-			$(".player-img .battle-health").html(player_char.health);
-
-			$(".enemy-img .battle-img").attr("src","assets/images/Orochimaru.png");
-			$(".enemy-img .battle-name").html(enemy_char.name);
-			$(".enemy-img .battle-health").html(enemy_char.health);
-		}
-
-
-		
-		var attack_button = $("<button class = 'btn btn-danger' id = 'atk-btn'>");
-		attack_button.html("Attack");
-		$(".center-col").append(attack_button);
-
-	});
-
-		//Chose to fight Pain
-		$(".pain-img").on("click", function(){
-		$(".character-select").css("display","none");
-		$("#choose-text").css("display","none");
-		enemy_char = pain;
-
-		if (player_char === "both"){
-			$("#battle-text").css("display","inline")
-			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
-			pimage.attr("src", "assets/images/NarutoandSasuke.png");
-
-			var pname = $("<p class = 'battle-name text-center'>");
-			pname.html("Naruto and Sasuke");
-			$(".player-img").append(pname);
-			var phealth = $("<p class= 'battle-health text-center'>");
-			phealth.html(naruto.health + sasuke.health);
-			$(".player-img").append(phealth);
-			$(".player-img").append(pimage);
-
-			var paimage = $("<img class = 'img-responsive center-block battle-img'>");
-			paimage.attr("src", "assets/images/Pain.png");
-			$(".enemy-img").append(paimage);
-			var paname = $("<p class = 'battle-name text-center'>");
-			paname.html(enemy_char.name);
-			$(".enemy-img").append(paname);
-			var pahealth = $("<p class = 'battle-health text-center'>");
-			pahealth.html(enemy_char.health);
-			$(".enemy-img").append(pahealth);
-		}else{
-			$(".player-img").css("display","block");
-			$(".enemy-img").css("display","block");
-			$("#battle-text").css("display","inline");
-			var pimg = player_char.name + player_char.state +".png";
-			var pimg_path = "assets/images/" + pimg;
-			$(".player-img .battle-img").attr("src",pimg_path);
-			$(".player-img .battle-name").html(player_char.name);
-			$(".player-img .battle-health").html(player_char.health);
-
-			$(".enemy-img .battle-img").attr("src","assets/images/Pain.png");
-			$(".enemy-img .battle-name").html(enemy_char.name);
-			$(".enemy-img .battle-health").html(enemy_char.health);
-		}
-
-
-		
-		var attack_button = $("<button class = 'btn btn-danger' id = 'atk-btn'>");
-		attack_button.html("Attack");
-		$(".center-col").append(attack_button);
-
-	});
-
-		//Chose to fight Madara
-	$(".madara-img").on("click", function(){
-		$(".character-select").css("display","none");
-		$("#choose-text").css("display","none");
-		enemy_char = madara;
-
-		if (player_char === "both"){
-			$("#battle-text").css("display","inline")
-			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
-			pimage.attr("src", "assets/images/NarutoandSasuke.png");
-
-			var pname = $("<p class = 'battle-name text-center'>");
-			pname.html("Naruto and Sasuke");
-			$(".player-img").append(pname);
-			var phealth = $("<p class= 'battle-health text-center'>");
-			phealth.html(naruto.health + sasuke.health);
-			$(".player-img").append(phealth);
-			$(".player-img").append(pimage);
-
-			var mimage = $("<img class = 'img-responsive center-block battle-img'>");
-			mimage.attr("src", "assets/images/Madara.png");
-			$(".enemy-img").append(mimage);
-			var mname = $("<p class = 'battle-name text-center'>");
-			mname.html(enemy_char.name);
-			$(".enemy-img").append(mname);
-			var mhealth = $("<p class = 'battle-health text-center'>");
-			mhealth.html(enemy_char.health);
-			$(".enemy-img").append(mhealth);
-
-		}else{
-			$(".player-img").css("display","block");
-			$(".enemy-img").css("display","block");
-			$("#battle-text").css("display","inline");
-			var pimg = player_char.name + player_char.state +".png";
-			var pimg_path = "assets/images/" + pimg;
-			$(".player-img .battle-img").attr("src",pimg_path);
-			$(".player-img .battle-name").html(player_char.name);
-			$(".player-img .battle-health").html(player_char.health);
-
-			$(".enemy-img .battle-img").attr("src","assets/images/Madara.png");
-			$(".enemy-img .battle-name").html(enemy_char.name);
-			$(".enemy-img .battle-health").html(enemy_char.health);
-		}
-
-
-		var attack_button = $("<button class = 'btn btn-danger' id = 'atk-btn'>");
-		attack_button.html("Attack");
-		$(".center-col").append(attack_button);
-
-	});
-
-		//Chose to fight Kaguya
-		$(".kaguya-img").on("click", function(){
-		$(".character-select").css("display","none");
-		$("#choose-text").css("display","none");
-		enemy_char = kaguya;
-
+		var epath = "assets/images/" + enemy_char.name + ".png";
 		if (player_char === "both"){
 			$("#battle-text").css("display","inline")			
 			$("#battle-text").html("Press the attack button to attack the enemy");
@@ -312,15 +108,15 @@ $(document).ready(function(){
 			$(".player-img").append(phealth);
 			$(".player-img").append(pimage);
 
-			var kimage = $("<img class = 'img-responsive center-block battle-img'>");
-			kimage.attr("src", "assets/images/Kaguya.png");
-			$(".enemy-img").append(kimage);
-			var kname = $("<p class = 'battle-name text-center'>");
-			kname.html(enemy_char.name);
-			$(".enemy-img").append(kname);
-			var khealth = $("<p class = 'battle-health text-center'>");
-			khealth.html(enemy_char.health);
-			$(".enemy-img").append(khealth);
+			var eimage = $("<img class = 'img-responsive center-block battle-img'>");
+			eimage.attr("src", epath);
+			$(".enemy-img").append(eimage);
+			var ename = $("<p class = 'battle-name text-center'>");
+			ename.html(enemy_char.name);
+			$(".enemy-img").append(ename);
+			var ehealth = $("<p class = 'battle-health text-center'>");
+			ehealth.html(enemy_char.health);
+			$(".enemy-img").append(ehealth);
 
 		}else{
 			$(".player-img").css("display","block");
@@ -332,7 +128,7 @@ $(document).ready(function(){
 			$(".player-img .battle-name").html(player_char.name);
 			$(".player-img .battle-health").html(player_char.health);
 
-			$(".enemy-img .battle-img").attr("src","assets/images/Kaguya.png");
+			$(".enemy-img .battle-img").attr("src",epath);
 			$(".enemy-img .battle-name").html(enemy_char.name);
 			$(".enemy-img .battle-health").html(enemy_char.health);
 		}
