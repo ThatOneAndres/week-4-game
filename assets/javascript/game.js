@@ -398,6 +398,13 @@ $(document).ready(function(){
 				$("#atk-btn").remove();
 				removed_char = enemy_char.name.toLowerCase();
 				removeEnemy(enemy_char);
+				if (enemies.length === 0){
+					$(".player-img").css("display","none");
+					$(".enemy-img").css("display","none");
+					$("#battle-text").css("display","none");
+					$("#game_name").html("Congratulation You Won!")
+					return;
+				}
 				var removed_img = "." + removed_char +"-img";
 				$(removed_img).html(" "); // replaces img from html with empty string
 				if(player_char === "both"){
