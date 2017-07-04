@@ -113,8 +113,8 @@ $(document).ready(function(){
 			zhealth.html(enemy_char.health);
 			$(".enemy-img").append(zhealth);
 		}else{
-			$(".player-img").css("display","inline");
-			$(".enemy-img").css("display","inline");
+			$(".player-img").css("display","block");
+			$(".enemy-img").css("display","block");
 			$("#battle-text").css("display","inline");
 			var pimg = player_char.name + player_char.state +".png";
 			var pimg_path = "assets/images/" + pimg;
@@ -166,8 +166,8 @@ $(document).ready(function(){
 			$(".enemy-img").append(ohealth);
 
 		}else{
-			$(".player-img").css("display","inline");
-			$(".enemy-img").css("display","inline");
+			$(".player-img").css("display","block");
+			$(".enemy-img").css("display","block");
 			$("#battle-text").css("display","inline");
 			var pimg = player_char.name + player_char.state +".png";
 			var pimg_path = "assets/images/" + pimg;
@@ -218,8 +218,8 @@ $(document).ready(function(){
 			pahealth.html(enemy_char.health);
 			$(".enemy-img").append(pahealth);
 		}else{
-			$(".player-img").css("display","inline");
-			$(".enemy-img").css("display","inline");
+			$(".player-img").css("display","block");
+			$(".enemy-img").css("display","block");
 			$("#battle-text").css("display","inline");
 			var pimg = player_char.name + player_char.state +".png";
 			var pimg_path = "assets/images/" + pimg;
@@ -271,8 +271,8 @@ $(document).ready(function(){
 			$(".enemy-img").append(mhealth);
 
 		}else{
-			$(".player-img").css("display","inline");
-			$(".enemy-img").css("display","inline");
+			$(".player-img").css("display","block");
+			$(".enemy-img").css("display","block");
 			$("#battle-text").css("display","inline");
 			var pimg = player_char.name + player_char.state +".png";
 			var pimg_path = "assets/images/" + pimg;
@@ -323,8 +323,8 @@ $(document).ready(function(){
 			$(".enemy-img").append(khealth);
 
 		}else{
-			$(".player-img").css("display","inline");
-			$(".enemy-img").css("display","inline");
+			$(".player-img").css("display","block");
+			$(".enemy-img").css("display","block");
 			$("#battle-text").css("display","inline");
 			var pimg = player_char.name + player_char.state +".png";
 			var pimg_path = "assets/images/" + pimg;
