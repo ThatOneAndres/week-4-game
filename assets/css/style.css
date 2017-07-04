@@ -73,3 +73,16 @@ h2{
 	font-size: 30px;
 	font-family: sans-serif;
 }
+.mute-btn{
+	position: absolute;
+	bottom: 0;
+	top: auto;
+	font-size: 30px;
+}
+.unmute-btn{
+	position: absolute;
+	bottom: 0;
+	top: auto;
+	font-size: 30px;
+	display: none;
+}

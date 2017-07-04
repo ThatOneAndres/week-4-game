@@ -38,6 +38,7 @@ Enemy.prototype.attackChar = function(opponent){
 	}
 }
 
+
 // Player's Character
 var player_char = "both";
 
@@ -81,7 +82,7 @@ var removeEnemy = function(enemy){
 }
 
 $(document).ready(function(){
-
+		$("#naruto-theme").prop("volume",0.2);
 
 		// Selecting to fight an enemy
 		$(".img-size").on("click", function(){
@@ -281,6 +282,19 @@ $(document).ready(function(){
 			$(".enemy-img .battle-img").removeAttr("id");
 
 		});
+
+		$(".mute-btn").on("click",function(){
+			$("#naruto-theme").prop("muted", true);
+			$(".mute-btn").css("display","none");
+			$(".unmute-btn").css("display","block");
+		});
+
+		$(".unmute-btn").on("click",function(){
+			$("#naruto-theme").prop("muted", false);
+			$(".unmute-btn").css("display","none");
+			$(".mute-btn").css("display","block");
+		});
+
 
 
 
