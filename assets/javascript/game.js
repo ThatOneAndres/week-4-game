@@ -454,6 +454,14 @@ $(document).ready(function(){
 			$("#battle-text").css("display","none");
 			$(".character-select").css("display","inline");
 			$("#choose-text").css("display","block");
+			// Removes hover effects after this action
+			$(".enemy-img .battle-img").off("mouseenter mouseleave");
+			$(".player-img .battle-img").off("mouseenter mouseleave");
+			$(".enemy-img .battle-img").removeAttr("style");
+			$(".player-img .battle-img").removeAttr("style");
+			// Removes the ids: select_naruto and select_sasuke
+			$(".player-img .battle-img").removeAttr("id");
+			$(".enemy-img .battle-img").removeAttr("id");
 
 		});
 		$(".enemy-img").delegate("#select_sasuke","click",function(){
@@ -466,6 +474,15 @@ $(document).ready(function(){
 			$("#battle-text").css("display","none");
 			$(".character-select").css("display","inline");
 			$("#choose-text").css("display","block");
+			// Removes hover effects after this action
+			$(".enemy-img .battle-img").off("mouseenter mouseleave");
+			$(".player-img .battle-img").off("mouseenter mouseleave");
+			$(".player-img .battle-img").removeAttr("style");
+			$(".enemy-img .battle-img").removeAttr("style");
+			// Removes the ids: select_naruto and select_sasuke
+			$(".player-img .battle-img").removeAttr("id");
+			$(".enemy-img .battle-img").removeAttr("id");
+
 		});
 
 
