@@ -66,9 +66,9 @@ shikamaru.paralysis = function(enemy){
 
 // Enemies 
 var zabuza = new Enemy("Zabuza",20, 40)
-var orochimaru = new Enemy("Orochimaru", 40, 60)
-var pain = new Enemy("Pain", 60, 80)
-var madara = new Enemy("Madara", 80, 100);
+var orochimaru = new Enemy("Orochimaru", 40, 80)
+var pain = new Enemy("Pain", 60, 120)
+var madara = new Enemy("Madara", 80, 160);
 var kaguya = new Enemy("Kaguya", 120, 200);
 
 // Array of enemies
@@ -232,6 +232,7 @@ $(document).ready(function(){
 					player_char.health += 100;
 					$(".player-img").css("display","none");
 					$(".enemy-img").css("display","none");
+					$("#battle-text").html(" ");
 					$("#battle-text").css("display","none");
 					$(".character-select").css("display","inline");
 					$("#choose-text").css("display","block");
