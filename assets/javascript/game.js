@@ -95,7 +95,7 @@ $(document).ready(function(){
 		var enem_img_name = enem_name.toLowerCase() + "-img";
 		col_img.addClass(enem_img_name);
 		col_enem.append(col_img);
-		var enem_img = $("<img class = 'img-responsive img-size'>");
+		var enem_img = $("<img class = 'img-responsive img-size center-block'>");
 		var img_path = "assets/images/" + enem_name + ".png";
 		enem_img.attr("src",img_path);
 		enem_img.attr("name",enem_name);
