@@ -11,58 +11,31 @@
 <body>
 	<audio id = "naruto-theme"  autoplay="autoplay">
 		<source src="assets/audio/Naruto_Theme.mp3">
-	</audio>
-	<div class="container">
-		<header class = "header">
-			<div class="container text-center">
-				<h1 id = "game_name"> Naruto: Adventures of a Ninja </h1>
+		</audio>
+		<div class="container">
+			<header class = "header">
+				<div class="container text-center">
+					<h1 id = "game_name"> Naruto: Adventures of a Ninja </h1>
+				</div>
+			</header>
+			<div class="row">
+				<h2 class = "text-center" id = "choose-text"> Choose Enemy to face </h2> 
 			</div>
-		</header>
-		<div class="row">
-			<h2 class = "text-center" id = "choose-text"> Choose Enemy to face </h2> 
+			<div class="row text-center">
+				<p id = "battle-text"> </p>
+			</div>
+			<div class="row character-select"></div>
+			
+			<div class="row">
+				<div class="col-md-5 player-img"></div>
+				<div class="col-md-2 center-col text-center"></div>
+				<div class="col-md-5 enemy-img"></div>
+			</div>
+			<div class = "mute-btn glyphicon glyphicon-volume-up"></div>
+			<div class = "unmute-btn glyphicon glyphicon-volume-off" ></div>
 		</div>
-		<div class="row text-center">
-			<p id = "battle-text"> </p>
-		</div>
-		<div class="row character-select">
-			<div class="col-md-1"></div>
-			<div class="col-md-2 col-sm-6 zabuza-img">
-				<img src="assets/images/Zabuza.png" class = "img-responsive img-size center-block" name = "Zabuza">
-				<p class = "enemy-name text-center"> Zabuza </p>
-				<p class = "enemy-health text-center"> 40 </p>
-			</div>
-			<div class="col-md-2 col-sm-6 orochimaru-img">
-				<img src="assets/images/Orochimaru.png" class = "img-responsive img-size center-block" name = "Orochimaru">
-				<p class = "enemy-name text-center"> Orochimaru </p>
-				<p class = "enemy-health text-center"> 80 </p>
-			</div>
-			<div class="col-md-2 col-sm-6 pain-img">
-				<img src="assets/images/Pain.png" class = "img-responsive img-size center-block" name = "Pain">
-				<p class = "enemy-name text-center"> Pain </p>
-				<p class = "enemy-health text-center"> 120 </p>
-			</div>
-			<div class="col-md-2 col-sm-6 madara-img">
-				<img src="assets/images/Madara.png" class = "img-responsive img-size center-block" name = "Madara">
-				<p class = "enemy-name text-center"> Madara </p>
-				<p class = "enemy-health text-center"> 160 </p>
-			</div>
-			<div class="col-md-2 col-sm-6 kaguya-img">
-				<img src="assets/images/Kaguya.png" class = "img-responsive img-size center-block" name = "Kaguya">
-				<p class = "enemy-name text-center"> Kaguya </p>
-				<p class = "enemy-health text-center"> 200 </p>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-5 player-img"></div>
-			<div class="col-md-2 center-col text-center"></div>
-			<div class="col-md-5 enemy-img"></div>
-		</div>
-		<div class = "mute-btn glyphicon glyphicon-volume-up"></div>
-		<div class = "unmute-btn glyphicon glyphicon-volume-off" ></div>
-	</div>
 
 
 
-</body>
-</html>
+	</body>
+	</html>

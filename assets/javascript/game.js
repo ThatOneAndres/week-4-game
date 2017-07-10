@@ -14,8 +14,8 @@ function Player(name, attack, health, atkIncreases){
 	}
 }
 Player.prototype.attackChar = function(opponent){
-		opponent.health -= this.attack;
-		this.attack += this.atkIncreases[this.state];
+	opponent.health -= this.attack;
+	this.attack += this.atkIncreases[this.state];
 }
 
 // Constructor for support character
@@ -81,65 +81,82 @@ var removeEnemy = function(enemy){
 	enemies.splice(enemies.indexOf(enemy_char),1);
 }
 
+
 $(document).ready(function(){
-		$("#naruto-theme").prop("volume",0.2);
+	$("#naruto-theme").prop("volume",0.5);
+	$(".character-select").append($("<div class = 'col-md-1'>"));
+	for (var i = 0; i < enemies.length; i++){
+		var col_enem = $("<div class = 'col-md-2 col-sm-6'>");
+		var enem_name = enemies[i].name
+		var enem_img_name = enem_name.toLowerCase() + "-img";
+		col_enem.addClass(enem_img_name);
+		var enem_img = $("<img class = 'img-responsive img-size'>");
+		var img_path = "assets/images/" + enem_name + ".png";
+		enem_img.attr("src",img_path);
+		enem_img.attr("name",enem_name);
+		col_enem.append(enem_img);
+		var name_overlay = $("<p class = 'enemy-name text-center'>");
+		name_overlay.text(enem_name);
+		col_enem.append(name_overlay)
+		$(".character-select").append(col_enem);
+	}
 
 		// Selecting to fight an enemy
 		$(".img-size").on("click", function(){
-		$(".character-select").css("display","none");
-		$("#choose-text").css("display","none");
-		var name_char = $(this).attr("name");
-		for (var i = 0; i < enemies.length; i++){
-			if(name_char === enemies[i].name){
-				enemy_char = enemies[i];
+			$(".character-select").css("display","none");
+			$("#choose-text").css("display","none");
+			var name_char = $(this).attr("name");
+			for (var i = 0; i < enemies.length; i++){
+				if(name_char === enemies[i].name){
+					enemy_char = enemies[i];
+				}
 			}
-		}
-		var epath = "assets/images/" + enemy_char.name + ".png";
-		if (player_char === "both"){
-			$("#battle-text").css("display","inline")			
-			$("#battle-text").html("Press the attack button to attack the enemy");
-			var pimage = $("<img class = 'img-responsive center-block battle-img'>");
-			pimage.attr("src", "assets/images/NarutoandSasuke.png");
+			var epath = "assets/images/" + enemy_char.name + ".png";
+			if (player_char === "both"){
+				$("#battle-text").css("display","inline")			
+				$("#battle-text").html("Press the attack button to attack the enemy");
+				var pimage = $("<img class = 'img-responsive center-block battle-img'>");
+				pimage.attr("src", "assets/images/NarutoandSasuke.png");
 
-			var pname = $("<p class = 'battle-name text-center'>");
-			pname.html("Naruto and Sasuke");
-			$(".player-img").append(pname);
-			var phealth = $("<p class= 'battle-health text-center'>");
-			phealth.html(naruto.health + sasuke.health);
-			$(".player-img").append(phealth);
-			$(".player-img").append(pimage);
+				var pname = $("<p class = 'battle-name text-center'>");
+				pname.html("Naruto and Sasuke");
+				$(".player-img").append(pname);
+				var phealth = $("<p class= 'battle-health text-center'>");
+				phealth.html(naruto.health + sasuke.health);
+				$(".player-img").append(phealth);
+				$(".player-img").append(pimage);
 
-			var eimage = $("<img class = 'img-responsive center-block battle-img'>");
-			eimage.attr("src", epath);
-			$(".enemy-img").append(eimage);
-			var ename = $("<p class = 'battle-name text-center'>");
-			ename.html(enemy_char.name);
-			$(".enemy-img").append(ename);
-			var ehealth = $("<p class = 'battle-health text-center'>");
-			ehealth.html(enemy_char.health);
-			$(".enemy-img").append(ehealth);
+				var eimage = $("<img class = 'img-responsive center-block battle-img'>");
+				eimage.attr("src", epath);
+				$(".enemy-img").append(eimage);
+				var ename = $("<p class = 'battle-name text-center'>");
+				ename.html(enemy_char.name);
+				$(".enemy-img").append(ename);
+				var ehealth = $("<p class = 'battle-health text-center'>");
+				ehealth.html(enemy_char.health);
+				$(".enemy-img").append(ehealth);
 
-		}else{
-			$(".player-img").css("display","block");
-			$(".enemy-img").css("display","block");
-			$("#battle-text").css("display","inline");
-			var pimg = player_char.name + player_char.state +".png";
-			var pimg_path = "assets/images/" + pimg;
-			$(".player-img .battle-img").attr("src",pimg_path);
-			$(".player-img .battle-name").html(player_char.name);
-			$(".player-img .battle-health").html(player_char.health);
+			}else{
+				$(".player-img").css("display","block");
+				$(".enemy-img").css("display","block");
+				$("#battle-text").css("display","inline");
+				var pimg = player_char.name + player_char.state +".png";
+				var pimg_path = "assets/images/" + pimg;
+				$(".player-img .battle-img").attr("src",pimg_path);
+				$(".player-img .battle-name").html(player_char.name);
+				$(".player-img .battle-health").html(player_char.health);
 
-			$(".enemy-img .battle-img").attr("src",epath);
-			$(".enemy-img .battle-name").html(enemy_char.name);
-			$(".enemy-img .battle-health").html(enemy_char.health);
-		}
+				$(".enemy-img .battle-img").attr("src",epath);
+				$(".enemy-img .battle-name").html(enemy_char.name);
+				$(".enemy-img .battle-health").html(enemy_char.health);
+			}
 
-	
-		var attack_button = $("<button class = 'btn btn-danger' id = 'atk-btn'>");
-		attack_button.html("Attack");
-		$(".center-col").append(attack_button);
+			
+			var attack_button = $("<button class = 'btn btn-danger' id = 'atk-btn'>");
+			attack_button.html("Attack");
+			$(".center-col").append(attack_button);
 
-	});
+		});
 
 
 		//Once already in battle
@@ -155,26 +172,26 @@ $(document).ready(function(){
 				naruto.attackChar(enemy_char);
 				sasuke.attackChar(enemy_char);
 				if (!(enemy_char.health <= 0)){
-				enemy_char.attackChar(naruto);
-				enemy_char.attackChar(sasuke);
-				$(".player-img p.battle-health").html(sasuke.health + naruto.health);
-				$(".enemy-img p.battle-health").html(enemy_char.health);
+					enemy_char.attackChar(naruto);
+					enemy_char.attackChar(sasuke);
+					$(".player-img p.battle-health").html(sasuke.health + naruto.health);
+					$(".enemy-img p.battle-health").html(enemy_char.health);
 				}
 				if ((sasuke.health + naruto.health) <= 0){
-				$("#atk-btn").remove();
-				$(".player-img").css("display","none");
-				$(".enemy-img").css("display","none");
-				$("#battle-text").css("display","none");
+					$("#atk-btn").remove();
+					$(".player-img").css("display","none");
+					$(".enemy-img").css("display","none");
+					$("#battle-text").css("display","none");
 
-				$("#game_name").html("You have lost... Refresh page to restart.")
-				return;
+					$("#game_name").html("You have lost... Refresh page to restart.")
+					return;
 				}
 
 			}else{
 				$("#battle-text").html(player_char.name +" did " 
-				+ player_char.attack + " damage. "
-				+ enemy_char.name + " did "
-				+ enemy_char.attack + " damage.");
+					+ player_char.attack + " damage. "
+					+ enemy_char.name + " did "
+					+ enemy_char.attack + " damage.");
 				player_char.attackChar(enemy_char);
 				if (!(enemy_char.health <= 0)){
 					enemy_char.attackChar(player_char);
@@ -237,7 +254,7 @@ $(document).ready(function(){
 					$("#battle-text").css("display","none");
 					$(".character-select").css("display","inline");
 					$("#choose-text").css("display","block");
-			}
+				}
 			}
 
 		});
@@ -299,4 +316,4 @@ $(document).ready(function(){
 
 
 
-})
+	})
