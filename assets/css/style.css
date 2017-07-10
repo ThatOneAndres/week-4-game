@@ -40,6 +40,9 @@ h2{
 	height: 450px;
 	width: 400px;
 }
+.enemy{
+	position: relative;
+}
 #battle-text{
 	display: none;
 	color: yellow;

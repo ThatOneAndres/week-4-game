@@ -84,20 +84,25 @@ var removeEnemy = function(enemy){
 
 $(document).ready(function(){
 	$("#naruto-theme").prop("volume",0.5);
+	enemies = enemies.sort(function(a,b){
+		return 0.5 - Math.random()
+	});
 	$(".character-select").append($("<div class = 'col-md-1'>"));
 	for (var i = 0; i < enemies.length; i++){
 		var col_enem = $("<div class = 'col-md-2 col-sm-6'>");
 		var enem_name = enemies[i].name
+		var col_img = $("<div class = 'enemy'>");
 		var enem_img_name = enem_name.toLowerCase() + "-img";
-		col_enem.addClass(enem_img_name);
+		col_img.addClass(enem_img_name);
+		col_enem.append(col_img);
 		var enem_img = $("<img class = 'img-responsive img-size'>");
 		var img_path = "assets/images/" + enem_name + ".png";
 		enem_img.attr("src",img_path);
 		enem_img.attr("name",enem_name);
-		col_enem.append(enem_img);
+		col_img.append(enem_img);
 		var name_overlay = $("<p class = 'enemy-name text-center'>");
 		name_overlay.text(enem_name);
-		col_enem.append(name_overlay)
+		col_img.append(name_overlay)
 		$(".character-select").append(col_enem);
 	}
 
@@ -112,6 +117,7 @@ $(document).ready(function(){
 				}
 			}
 			var epath = "assets/images/" + enemy_char.name + ".png";
+			//When fighting got the first time with both characters
 			if (player_char === "both"){
 				$("#battle-text").css("display","inline")			
 				$("#battle-text").html("Press the attack button to attack the enemy");
@@ -135,7 +141,7 @@ $(document).ready(function(){
 				var ehealth = $("<p class = 'battle-health text-center'>");
 				ehealth.html(enemy_char.health);
 				$(".enemy-img").append(ehealth);
-
+				//When you are fighting with character selected
 			}else{
 				$(".player-img").css("display","block");
 				$(".enemy-img").css("display","block");
