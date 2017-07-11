@@ -175,11 +175,18 @@ $(document).ready(function(){
 					+ " hit both Naruto and Sasuke for "
 					+ enemy_char.attack) + " damage.";
 
+				var ehealth= enemy_char.health;
 				naruto.attackChar(enemy_char);
 				sasuke.attackChar(enemy_char);
+				var eopacity = enemy_char.health/ehealth;
+				$(".enemy-img img.battle-img").fadeTo("slow", eopacity);
+
+
 				if (!(enemy_char.health <= 0)){
 					enemy_char.attackChar(naruto);
 					enemy_char.attackChar(sasuke);
+					var nopacity = naruto.health/100 + sasuke.health/100;
+					$(".player-img img.battle-img").fadeTo("slow", nopacity);
 					$(".player-img p.battle-health").html(sasuke.health + naruto.health);
 					$(".enemy-img p.battle-health").html(enemy_char.health);
 				}
@@ -198,9 +205,16 @@ $(document).ready(function(){
 					+ player_char.attack + " damage. "
 					+ enemy_char.name + " did "
 					+ enemy_char.attack + " damage.");
+
+				var ehealth = enemy_char.health;
 				player_char.attackChar(enemy_char);
+				var eopacity = enemy_char.health/ehealth;
+				$(".enemy-img img.battle-img").fadeTo("slow", eopacity);
 				if (!(enemy_char.health <= 0)){
+					var phealth = player_char.health;
 					enemy_char.attackChar(player_char);
+					var nopacity = player_char.health/phealth;
+					$(".player-img img.battle-img").fadeTo("slow", nopacity);
 					$(".player-img p.battle-health").html(player_char.health);
 					$(".enemy-img p.battle-health").html(enemy_char.health);
 				}
@@ -228,8 +242,10 @@ $(document).ready(function(){
 				var removed_img = "." + removed_char +"-img";
 				$(removed_img).html(" "); // replaces img from html with empty string
 				if(player_char === "both"){
-					var inaruto = $(".player-img .battle-img");
-					var isasuke = $(".enemy-img .battle-img");
+					var inaruto = $(".player-img img.battle-img");
+					var isasuke = $(".enemy-img img.battle-img");
+					inaruto.fadeTo("fast",1);
+					isasuke.fadeTo("fast",1);
 					inaruto.attr("src", "assets/images/Naruto2.png");
 					inaruto.attr("id", "select_naruto");
 					inaruto.hover(
@@ -254,6 +270,8 @@ $(document).ready(function(){
 				}else{
 					player_char.state++;
 					player_char.health += 100;
+					$(".player-img img.battle-img").fadeTo("slow", 1);
+					$(".enemy-img img.battle-img").fadeTo("slow", 1);
 					$(".player-img").css("display","none");
 					$(".enemy-img").css("display","none");
 					$("#battle-text").html(" ");
@@ -265,16 +283,16 @@ $(document).ready(function(){
 
 		});
 
-		$(".player-img").delegate("#select_naruto","click",function(){
-			player_char = naruto;
-			player_char.state++;
-			player_char.health += 75;
-			$(".player-img").css("display","none");
-			$(".enemy-img").css("display","none");
-			$("#battle-text").html(" ");
-			$("#battle-text").css("display","none");
-			$(".character-select").css("display","inline");
-			$("#choose-text").css("display","block");
+$(".player-img").delegate("#select_naruto","click",function(){
+	player_char = naruto;
+	player_char.state++;
+	player_char.health += 75;
+	$(".player-img").css("display","none");
+	$(".enemy-img").css("display","none");
+	$("#battle-text").html(" ");
+	$("#battle-text").css("display","none");
+	$(".character-select").css("display","inline");
+	$("#choose-text").css("display","block");
 			// Removes hover effects after this action
 			$(".enemy-img .battle-img").off("mouseenter mouseleave");
 			$(".player-img .battle-img").off("mouseenter mouseleave");
@@ -285,16 +303,16 @@ $(document).ready(function(){
 			$(".enemy-img .battle-img").removeAttr("id");
 
 		});
-		$(".enemy-img").delegate("#select_sasuke","click",function(){
-			player_char = sasuke;
-			player_char.state++;
-			player_char.health += 75;
-			$(".player-img").css("display","none");
-			$(".enemy-img").css("display","none");
-			$("#battle-text").html(" ");
-			$("#battle-text").css("display","none");
-			$(".character-select").css("display","inline");
-			$("#choose-text").css("display","block");
+$(".enemy-img").delegate("#select_sasuke","click",function(){
+	player_char = sasuke;
+	player_char.state++;
+	player_char.health += 75;
+	$(".player-img").css("display","none");
+	$(".enemy-img").css("display","none");
+	$("#battle-text").html(" ");
+	$("#battle-text").css("display","none");
+	$(".character-select").css("display","inline");
+	$("#choose-text").css("display","block");
 			// Removes hover effects after this action
 			$(".enemy-img .battle-img").off("mouseenter mouseleave");
 			$(".player-img .battle-img").off("mouseenter mouseleave");
@@ -306,20 +324,20 @@ $(document).ready(function(){
 
 		});
 
-		$(".mute-btn").on("click",function(){
-			$("#naruto-theme").prop("muted", true);
-			$(".mute-btn").css("display","none");
-			$(".unmute-btn").css("display","block");
-		});
+$(".mute-btn").on("click",function(){
+	$("#naruto-theme").prop("muted", true);
+	$(".mute-btn").css("display","none");
+	$(".unmute-btn").css("display","block");
+});
 
-		$(".unmute-btn").on("click",function(){
-			$("#naruto-theme").prop("muted", false);
-			$(".unmute-btn").css("display","none");
-			$(".mute-btn").css("display","block");
-		});
-
-
+$(".unmute-btn").on("click",function(){
+	$("#naruto-theme").prop("muted", false);
+	$(".unmute-btn").css("display","none");
+	$(".mute-btn").css("display","block");
+});
 
 
 
-	})
+
+
+})
