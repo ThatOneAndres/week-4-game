@@ -138,9 +138,7 @@ $(document).ready(function(){
 				var ename = $("<p class = 'battle-name text-center'>");
 				ename.html(enemy_char.name);
 				$(".enemy-img").append(ename);
-				var ehealth = $("<p class = 'battle-health text-center'>");
-				ehealth.html(enemy_char.health);
-				$(".enemy-img").append(ehealth);
+
 				//When you are fighting with character selected
 			}else{
 				$(".player-img").css("display","block");
@@ -154,7 +152,6 @@ $(document).ready(function(){
 
 				$(".enemy-img .battle-img").attr("src",epath);
 				$(".enemy-img .battle-name").html(enemy_char.name);
-				$(".enemy-img .battle-health").html(enemy_char.health);
 			}
 
 			
@@ -196,7 +193,10 @@ $(document).ready(function(){
 					$(".enemy-img").css("display","none");
 					$("#battle-text").css("display","none");
 
-					$("#game_name").html("You have lost... Refresh page to restart.")
+					$("#game_name").html("You have lost... Don't Give Up!")
+					var reset_button = $("<button class = 'btn btn-danger btn-lg' id = 'reset-btn'>");
+					reset_button.html("Play Again");
+					$(".center-col").append(reset_button);
 					return;
 				}
 
@@ -220,23 +220,31 @@ $(document).ready(function(){
 				}
 
 			}
+			// When player loses
 			if (player_char.health <= 0){
 				$("#atk-btn").remove();
 				$(".player-img").css("display","none");
 				$(".enemy-img").css("display","none");
 				$("#battle-text").css("display","none");
-				$("#game_name").html("You have lost... Refresh page to restart.")
+				$("#game_name").html("You have lost... Don't Give Up!")
+				var reset_button = $("<button class = 'btn btn-danger btn-lg' id = 'reset-btn'>");
+				reset_button.html("Play Again");
+				$(".center-col").append(reset_button);
 				return;
 			}
 			if (enemy_char.health <= 0){
 				$("#atk-btn").remove();
 				removed_char = enemy_char.name.toLowerCase();
 				removeEnemy(enemy_char);
+				// When player wins
 				if (enemies.length === 0){
 					$(".player-img").css("display","none");
 					$(".enemy-img").css("display","none");
 					$("#battle-text").css("display","none");
 					$("#game_name").html("Congratulation You Won!")
+					var reset_button = $("<button class = 'btn btn-danger btn-lg' id = 'reset-btn'>");
+					reset_button.html("Play Again");
+					$(".center-col").append(reset_button);
 					return;
 				}
 				var removed_img = "." + removed_char +"-img";
@@ -334,6 +342,10 @@ $(".unmute-btn").on("click",function(){
 	$("#naruto-theme").prop("muted", false);
 	$(".unmute-btn").css("display","none");
 	$(".mute-btn").css("display","block");
+});
+
+$(".center-col").delegate("#reset-btn","click", function(){
+	location.reload();
 });
 
 
